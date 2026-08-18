@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- SweetAlert CDN for popup modals -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Quiz Header Styling */
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+}
+
+.badge-group, .timer-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quiz-header-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.timer-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Badges */
+.badge {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.timer-badge {
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.3);
+  background-color: rgba(248, 113, 113, 0.1);
+}
+
+/* Question Text */
+#questionText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 1.5rem;
+}
+
+/* Actions Group */
+.actions-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+  </style>
+</head>
+<body class="center-layout">
+
+  <div class="card quiz-card">
+    <div class="quiz-header">
+      <div class="badge-group">
+        <img src="https://img.icons8.com/color/96/help--v1.png" alt="Quiz Icon" class="quiz-header-icon">
+        <span id="questionNum" class="badge">Question 01 / 25</span>
+      </div>
+      <div class="timer-wrapper">
+        <img src="https://img.icons8.com/ios-glyphs/30/f87171/stopwatch.png" alt="Timer Icon" class="timer-icon">
+        <span id="timer" class="badge timer-badge">Time Remaining: 30s</span>
+      </div>
+    </div>
+
+    <h3 id="questionText">Question goes here</h3>
+    
+    <div id="optionsContainer" class="options-group"></div>
+    
+    <div class="actions-group">
+      <button id="prevBtn" class="btn btn-secondary" disabled>Previous</button>
+      <button id="nextBtn" class="btn btn-primary" disabled>Next Question</button>
+      <button id="endBtn" class="btn btn-danger">End Test</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

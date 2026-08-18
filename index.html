@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App - Signup</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+ 
+ 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+  /* Background Image Overlay */
+body.center-layout {
+  background: 
+    linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)),
+    url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+}
+
+/* Header Rocket Image */
+.header-img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.5rem;
+}
+
+/* Input Fields with Icons */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem; /* Leaves room for the icon */
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+</style>
+
+</head>
+<body class="center-layout">
+
+  <div class="card">
+ <div class="auth-header">
+  <div class="icon-badge">
+    <!-- Updated Rocket Logo -->
+    <img src="https://img.icons8.com/color/96/rocket.png" alt="Quiz App Logo" class="header-img">
+  </div>
+  <h2>Create Account</h2>
+  <p>Sign up to start your web development quiz</p>
+</div>
+
+<form id="signupForm">
+  <div class="input-group">
+    <label for="signupName">Full Name</label>
+    <div class="input-wrapper">
+      <img src="https://img.icons8.com/ios-glyphs/30/94a3b8/user--v1.png" alt="User Icon" class="input-icon">
+      <input type="text" id="signupName" placeholder="John Doe" required>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="signupEmail">Email Address</label>
+    <div class="input-wrapper">
+      <!-- Fixed Email Icon -->
+      <img src="https://img.icons8.com/ios-glyphs/30/94a3b8/new-post.png" alt="Email Icon" class="input-icon">
+      <input type="email" id="signupEmail" placeholder="name@example.com" required>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="signupPassword">Password</label>
+    <div class="input-wrapper">
+      <img src="https://img.icons8.com/ios-glyphs/30/94a3b8/lock--v1.png" alt="Lock Icon" class="input-icon">
+      <input type="password" id="signupPassword" placeholder="••••••••" required>
+    </div>
+  </div>
+
+  <button type="submit" class="btn-primary">Sign Up</button>
+</form>
+    <p class="auth-footer">Already have an account? <a href="login.html">Login</a></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

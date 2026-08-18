@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Result</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Result Card Container */
+.result-card {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  padding: 2.5rem;
+}
+
+/* Header & Main Badge Image */
+.result-header {
+  margin-bottom: 1.75rem;
+}
+
+.result-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.result-img {
+  width: 48px;
+  height: 48px;
+}
+
+.result-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.35rem;
+}
+
+.result-header p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* Score Grid */
+.score-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.score-card {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.metric-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.score-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+/* Feedback Section */
+.result-feedback {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px dashed #334155;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.tagline {
+  color: #4ade80;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+  </style>
+</head>
+<body class="center-layout">
+
+  <div class="card result-card">
+    <div class="result-header">
+      <div id="resultBadge" class="result-badge">
+        <img src="https://img.icons8.com/color/96/trophy.png" alt="Result Trophy" id="badgeImg" class="result-img">
+      </div>
+      <h2 id="resultTitle">Congratulations!</h2>
+      <p>You have completed the Web Development Quiz.</p>
+    </div>
+
+    <div class="score-grid">
+      <div class="score-card">
+        <div class="card-title">
+          <img src="https://img.icons8.com/ios-glyphs/30/94a3b8/checkmark--v1.png" alt="Score Icon" class="metric-icon">
+          <span class="score-label">Your Score</span>
+        </div>
+        <span id="scoreDisplay" class="score-value">0 / 25</span>
+      </div>
+
+      <div class="score-card">
+        <div class="card-title">
+          <img src="https://img.icons8.com/ios-glyphs/30/94a3b8/pie-chart.png" alt="Percent Icon" class="metric-icon">
+          <span class="score-label">Percentage</span>
+        </div>
+        <span id="percentDisplay" class="score-value">0%</span>
+      </div>
+    </div>
+
+    <div class="result-feedback">
+      <p id="feedbackText" class="tagline">Keep Learning & Keep Coding!</p>
+    </div>
+
+    <button onclick="window.location.href='home.html'" class="btn-primary">Try Again</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

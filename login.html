@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App - Login</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+  /* Header Icon Size */
+.header-img {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 0.5rem;
+}
+
+/* Input Wrapper & Icon Alignment */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+/* Add left padding so text doesn't overlap the icon */
+.input-wrapper input {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+</style>
+
+</head>
+<body class="center-layout">
+
+  <div class="card">
+    <div class="auth-header">
+  <div class="icon-badge">
+    <img src="https://img.icons8.com/color/96/lock--v1.png" alt="Lock Icon" class="header-img">
+  </div>
+  <h2>Welcome Back</h2>
+  <p>Please enter your details to sign in</p>
+</div>
+      
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="loginEmail">Email Address</label>
+        <div class="input-wrapper">
+          <img src="https://img.icons8.com/ios-glyphs/30/94a3b8/new-post.png" alt="Email Icon" class="input-icon">
+          <input type="email" id="loginEmail" placeholder="name@example.com" required>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="loginPassword">Password</label>
+        <div class="input-wrapper">
+          <img src="https://img.icons8.com/ios-glyphs/30/94a3b8/lock--v1.png" alt="Lock Icon" class="input-icon">
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary">Login</button>
+    </form>
+
+    <p class="auth-footer">Don't have an account? <a href="index.html">Sign up</a></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

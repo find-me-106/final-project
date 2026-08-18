@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+  --bg-main: #0f172a;
+  --card-bg: #1e293b;
+  --card-hover: #334155;
+  --accent-color: #6366f1;
+  --accent-hover: #4f46e5;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --warning-bg: rgba(239, 68, 68, 0.1);
+  --warning-text: #fca5a5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body.center-layout {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.home-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  max-width: 680px;
+  width: 100%;
+  padding: 2.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.user-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.avatar-badge img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+  margin-bottom: 0.75rem;
+}
+
+.user-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+/* Grid Layout */
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.quiz-category-card {
+  background: var(--bg-main);
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.quiz-category-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  background: var(--card-hover);
+}
+
+.quiz-category-card.selected {
+  border-color: var(--accent-color);
+  background: rgba(99, 102, 241, 0.15);
+}
+
+.cat-icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.cat-info h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.cat-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0.15rem 0 0.4rem;
+}
+
+.cat-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  color: #cbd5e1;
+}
+
+/* Rules Section */
+.quiz-rules {
+  background: var(--bg-main);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.rules-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.rules-header img {
+  width: 20px;
+  height: 20px;
+}
+
+.quiz-rules ul {
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.quiz-rules li {
+  margin-bottom: 0.35rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.quiz-rules li::before {
+  content: "•";
+  color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Action Button */
+.btn-primary {
+  width: 100%;
+  padding: 1rem;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+/* 1. Neon Accent Glow for Selected Card */
+.quiz-category-card.selected {
+  border: 2px solid #6366f1;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+}
+
+/* 2. Gradient Border Effect for Main Card */
+.home-card {
+  border: 2px solid transparent;
+  background-image: linear-gradient(#1e293b, #1e293b), 
+                    linear-gradient(135deg, #6366f1, #a855f7);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* 3. Soft Subtle Border for Inactive Cards */
+.quiz-category-card {
+  border: 1.5px solid #334155;
+  transition: all 0.2s ease;
+}
+
+.quiz-category-card:hover {
+  border-color: #818cf8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 4. Styled Border for Rules Box */
+.quiz-rules {
+  border: 1px solid #334155;
+  border-left: 4px solid #6366f1;
+}
+
+  </style>
+ 
+  <title>Quiz Home</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="center-layout">
+
+  <div class="card home-card">
+    <div class="user-header">
+      <div class="avatar-badge">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80" alt="User Avatar">
+      </div>
+      <h1 id="welcomeUser">Welcome, Student!</h1>
+      <p class="subtitle">Select a quiz topic below to test your web development skills</p>
+    </div>
+
+    <!-- Quiz Category Cards Grid -->
+    <div class="quiz-grid">
+      <div class="quiz-category-card selected" data-quiz="fullstack">
+        <div class="cat-icon">
+          <img src="https://img.icons8.com/color/96/stack.png" alt="Full Stack">
+        </div>
+        <div class="cat-info">
+          <h3>Full Web Dev Quiz</h3>
+          <p>HTML, CSS & JavaScript</p>
+          <span class="cat-tag">25 Questions • 20s Each</span>
+        </div>
+      </div>
+
+      <div class="quiz-category-card" data-quiz="html">
+        <div class="cat-icon">
+          <img src="https://img.icons8.com/color/96/html-5--v1.png" alt="HTML">
+        </div>
+        <div class="cat-info">
+          <h3>HTML Fundamentals</h3>
+          <p>Tags, Forms & Semantics</p>
+          <span class="cat-tag">25 Questions • 20s Each</span>
+        </div>
+      </div>
+
+      <div class="quiz-category-card" data-quiz="css">
+        <div class="cat-icon">
+          <img src="https://img.icons8.com/color/96/css3.png" alt="CSS">
+        </div>
+        <div class="cat-info">
+          <h3>CSS Mastery</h3>
+          <p>Flexbox, Grid & Box Model</p>
+          <span class="cat-tag">25 Questions • 20s Each</span>
+        </div>
+      </div>
+
+      <div class="quiz-category-card" data-quiz="js">
+        <div class="cat-icon">
+          <img src="https://img.icons8.com/color/96/javascript--v1.png" alt="JavaScript">
+        </div>
+        <div class="cat-info">
+          <h3>JavaScript Core</h3>
+          <p>DOM, ES6 & Functions</p>
+          <span class="cat-tag">25 Questions • 20s Each</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-rules">
+      <div class="rules-header">
+        <img src="https://img.icons8.com/fluency/48/info.png" alt="Info">
+        <strong>Quiz Rules</strong>
+      </div>
+      <ul>
+        <li>Each question has a strict <strong>20-second timer</strong>.</li>
+        <li>Unanswered questions submit automatically on timeout.</li>
+        <li>Switching tabs or opening a new tab will automatically cancel your test.</li>
+      </ul>
+    </div>
+
+    <button id="startQuizBtn" class="btn-primary">Start Selected Quiz</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
